@@ -117,6 +117,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.0
+        with:
+          fetch-depth: 0
 
       - name: Install system dependencies
         run: sudo apt-get install -y libsodium-dev
