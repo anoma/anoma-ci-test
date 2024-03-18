@@ -164,4 +164,3 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./doc
           publish_branch: gh-pages
-          destination_dir: docs/
