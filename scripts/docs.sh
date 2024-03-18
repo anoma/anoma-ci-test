@@ -1,4 +1,6 @@
 mix docs
+echo "running"
+echo $(git tag)
 echo $(git tag | tac)
 
 echo "var versionNodes = [" > ./doc/.doc-versions.js
