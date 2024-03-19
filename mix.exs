@@ -4,7 +4,7 @@ defmodule Anoma.MixProject do
   def project do
     [
       app: :anoma,
-      version: "0.7.0",
+      version: "0.8.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -70,15 +70,18 @@ defmodule Anoma.MixProject do
 
   def group_for_modules() do
     [
-      "Resource Machine": [~r/^Nock.?/, ~r/^Noun.?/],
+      "Resource Machine": [~r/^Nock.?/, ~r/^Noun.?/, ~r/^Anoma.Resource.?/],
       "Anoma Actors": [Anoma.Node],
       Mempool: ~r/^Anoma.Node.Mempool.?/,
       Executor: ~r/^Anoma.Node.Executor.?/,
+      Identity: [~r/^Anoma.Identity.?/, ~r/^Anoma.Node.Identity.?/],
       Intents: ~r/^Anoma.Node.Intent.?/,
       Storage: [~r/^Anoma.Node.Storage.?/, Anoma.Storage, Anoma.Order],
-      Utilities: [Anoma.Node.Utility, Anoma.Mnesia],
-      "Test Helpers": ~r/^TestHelper.?/,
-      "Deprecated Logic": [~r/^Anoma.Logic/, Anoma.Eval]
+      "Cryptographic Primitives": [~r/^Anoma.Crypto.?/],
+      Solver: [~r/^Anoma.Node.Solver.?/],
+      CommitmentTree: [~r/^CommitmentTree.?/],
+      Utilities: [Anoma.Node.Utility, Anoma.Mnesia, Anoma.Communicator],
+      "Test Helpers": ~r/^TestHelper.?/
     ]
   end
 

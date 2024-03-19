@@ -1,5 +1,6 @@
 defmodule Anoma.Crypto.Encrypt do
-  @moduledoc false
+  @type public() :: box_public()
+  @type secret() :: box_secret()
 
   @type box_public() :: <<_::256>>
   @type box_secret() :: <<_::256>>
@@ -23,8 +24,12 @@ defmodule Anoma.Crypto.Encrypt do
   @spec unseal(binary(), box_public(), box_secret()) ::
           {:ok, any()} | {:error, :failed_verification}
   def unseal(cipher, pub, sec) do
-    with {:ok, encrypt} <- :enacl.box_seal_open(cipher, pub, sec) do
-      {:ok, :erlang.binary_to_term(encrypt)}
+    try do
+      with {:ok, encrypt} <- :enacl.box_seal_open(cipher, pub, sec) do
+        {:ok, :erlang.binary_to_term(encrypt)}
+      end
+    rescue
+      _e in ArgumentError -> {:error, :failed_verification}
     end
   end
 end
