@@ -51,12 +51,6 @@ jobs:
         with:
           fail-on-failure: ${{ true }}
 
-
-      - name: Build docs
-        run: make docs
-      - name: Publish to Pages
-        uses: peaceiris/actions-gh-pages@v3.9.3
+      - uses: ./.github/workflows/docs
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./doc
-          publish_branch: gh-pages
