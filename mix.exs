@@ -4,24 +4,29 @@ defmodule Anoma.MixProject do
   def project do
     [
       app: :anoma,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: docs(),
+      dialyzer: [
+        plt_local_path: "plts/anoma.plt",
+        plt_core_path: "plts/core.plt"
+      ]
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :crypto]
+      extra_applications: [:logger, :crypto, :mnesia]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:mnesia_rocksdb, git: "https://github.com/mariari/mnesia_rocksdb"},
       {:typed_struct, "~> 0.3.0"},
       {:ex_doc, "~> 0.31", only: [:dev], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false}
