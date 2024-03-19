@@ -39,11 +39,11 @@ defmodule AnomaTest.Node.Mempool do
     Ccom.subscribe(node.executor, self())
     Mcom.hard_reset(node.mempool)
 
-    pid_zero = Mcom.tx(node.mempool, zero).pid
+    pid_zero = Mcom.tx(node.mempool, {:kv, zero}).pid
 
     Mcom.execute(node.mempool)
-    pid_one = Mcom.tx(node.mempool, increment).pid
-    pid_two = Mcom.tx(node.mempool, increment).pid
+    pid_one = Mcom.tx(node.mempool, {:kv, increment}).pid
+    pid_two = Mcom.tx(node.mempool, {:kv, increment}).pid
 
     Mcom.execute(node.mempool)
     assert_receive {:"$gen_cast", {:process_done, ^pid_zero}}
@@ -61,8 +61,8 @@ defmodule AnomaTest.Node.Mempool do
     Ccom.subscribe(node.executor, self())
     Mcom.hard_reset(node.mempool)
 
-    pid_one = Mcom.tx(node.mempool, increment).pid
-    pid_two = Mcom.tx(node.mempool, increment).pid
+    pid_one = Mcom.tx(node.mempool, {:kv, increment}).pid
+    pid_two = Mcom.tx(node.mempool, {:kv, increment}).pid
 
     Mcom.execute(node.mempool)
     assert_receive {:"$gen_cast", {:process_done, ^pid_one}}
@@ -77,7 +77,7 @@ defmodule AnomaTest.Node.Mempool do
 
     Mcom.hard_reset(node.mempool)
 
-    pid_zero = Mcom.tx(node.mempool, zero_counter(key)).pid
+    pid_zero = Mcom.tx(node.mempool, {:kv, zero_counter(key)}).pid
 
     Mcom.soft_reset(node.mempool)
 
@@ -85,5 +85,26 @@ defmodule AnomaTest.Node.Mempool do
 
     assert not Process.alive?(pid_zero)
     assert :absent = Storage.get(storage, key)
+  end
+
+  test "Transaction print", %{node: node} do
+    key = 666
+    Ccom.subscribe(node.executor, self())
+    Mcom.hard_reset(node.mempool)
+
+    zero_tx = Mcom.tx(node.mempool, zero_counter(key))
+    assert Mcom.pending_txs(node.mempool) == [zero_tx]
+    Mcom.soft_reset(node.mempool)
+  end
+
+  test "Transactions broadcast", %{node: node} do
+    Mcom.subscribe(node.mempool, self())
+
+    Mcom.hard_reset(node.mempool)
+
+    zero_tx = Mcom.tx(node.mempool, zero_counter(777))
+
+    assert_receive {:"$gen_cast", {:submitted, ^zero_tx}}
+    Mcom.soft_reset(node.mempool)
   end
 end

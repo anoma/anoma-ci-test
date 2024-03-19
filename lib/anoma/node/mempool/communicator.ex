@@ -1,14 +1,16 @@
 defmodule Anoma.Node.Mempool.Communicator do
   alias __MODULE__
 
+  use Anoma.Communicator, sub_field: :subscribers
+  alias Anoma.Communicator, as: ACom
+
   use TypedStruct
-  use GenServer
   alias Anoma.Node.Mempool.Primary
   alias Anoma.Node.Utility
 
-  # TODO add subscribers
   typedstruct do
     field(:primary, GenServer.server(), require: true)
+    field(:subscribers, ACom.t(), default: ACom.new())
   end
 
   def init(args) do
@@ -32,12 +34,14 @@ defmodule Anoma.Node.Mempool.Communicator do
   @spec soft_reset(GenServer.server()) :: :ok
   @spec hard_reset(GenServer.server()) :: :ok
   @spec tx(GenServer.server(), Noun.t()) :: Anoma.Transaction.t()
+  @spec pending_txs(GenServer.server()) :: list(Anoma.Transaction.t())
 
   defdelegate state(server), to: Primary
   defdelegate execute(server), to: Primary
   defdelegate soft_reset(server), to: Primary
   defdelegate hard_reset(server), to: Primary
   defdelegate tx(server, tx_code), to: Primary
+  defdelegate pending_txs(server), to: Primary
 
   ############################################################
   #                    Genserver Behavior                    #
@@ -48,11 +52,17 @@ defmodule Anoma.Node.Mempool.Communicator do
   end
 
   def handle_call({:tx, tx_code}, _from, state) do
-    {:reply, Primary.tx(state.primary, tx_code), state}
+    tx = Primary.tx(state.primary, tx_code)
+    Utility.broadcast(state.subscribers, {:submitted, tx})
+    {:reply, tx, state}
   end
 
   def handle_call(:execute, _from, state) do
     {:reply, Primary.execute(state.primary), state}
+  end
+
+  def handle_call(:pending_txs, _from, state) do
+    {:reply, Primary.pending_txs(state.primary), state}
   end
 
   def handle_cast(:soft_reset, state) do

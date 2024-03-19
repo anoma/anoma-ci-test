@@ -4,7 +4,8 @@ defmodule Anoma.Node.Intent.Communicator do
 
   """
 
-  use GenServer
+  use Anoma.Communicator, sub_field: :subscribers, handle_sub: :on_sub
+  alias Anoma.Communicator, as: ACom
   use TypedStruct
   alias __MODULE__
   alias Anoma.Intent
@@ -12,7 +13,7 @@ defmodule Anoma.Node.Intent.Communicator do
   alias Anoma.Node.Intent.Pool
 
   typedstruct do
-    field(:subscribers, MapSet.t(GenServer.server()), default: MapSet.new())
+    field(:subscribers, ACom.t(), default: ACom.new())
     field(:pool, atom(), require: true)
   end
 
@@ -66,30 +67,29 @@ defmodule Anoma.Node.Intent.Communicator do
     GenServer.call(communicator, :intents)
   end
 
-  @spec subscribe(GenServer.server(), GenServer.server()) :: :ok
-  def subscribe(communicator, subscriber) do
-    GenServer.cast(communicator, {:subscribe, subscriber})
-  end
-
   ############################################################
   #                    Genserver Behavior                    #
   ############################################################
 
   def handle_cast({:new_intent, intent}, agent) do
-    broadcast_intent(agent, intent)
+    if :ok == Pool.new_intent(agent.pool, intent) do
+      broadcast_intent(agent, intent)
+    end
+
     {:noreply, agent}
   end
 
   def handle_cast({:remove_intent, intent}, communicator) do
-    Pool.remove_intent(communicator.pool, intent)
+    if :ok == Pool.remove_intent(communicator.pool, intent) do
+      broadcast_remove(communicator, intent)
+    end
+
     {:noreply, communicator}
   end
 
-  def handle_cast({:subscribe, new_sub}, agent) do
+  def handle_cast({:on_sub, new_sub}, agent) do
     broadcast_intents(agent, new_sub)
-
-    subscribers = MapSet.put(agent.subscribers, new_sub)
-    {:noreply, %Communicator{agent | subscribers: subscribers}}
+    {:noreply, agent}
   end
 
   def handle_call(:intents, _from, com) do
@@ -103,8 +103,16 @@ defmodule Anoma.Node.Intent.Communicator do
   @spec broadcast_intent(t(), Intent.t()) :: :ok
   defp broadcast_intent(com, intent) do
     Utility.broadcast(
-      MapSet.put(com.subscribers, com.pool),
+      com.subscribers,
       {:new_intent, intent}
+    )
+  end
+
+  @spec broadcast_remove(t(), Intent.t()) :: :ok
+  defp broadcast_remove(com, intent) do
+    Utility.broadcast(
+      com.subscribers,
+      {:remove_intent, intent}
     )
   end
 
