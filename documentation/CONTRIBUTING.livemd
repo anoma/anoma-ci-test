@@ -4,13 +4,14 @@
 
 ## Index
 
-* [Index](./index.livemd)
+* [Index](./index_docs.livemd)
   * [Contributing](./CONTRIBUTING.livemd)
     1. [IEx](./contributing/iex.livemd)
     2. [Observer](./contributing/observer.livemd)
     3. [Understanding any module](./contributing/understanding.livemd)
     4. [Testing](./contributing/testing.livemd)
     5. [Git](./contributing/git.livemd)
+    6. [Hoon](./contributing/hoon.livemd)
 
 <!-- livebook:{"break_markdown":true} -->
 

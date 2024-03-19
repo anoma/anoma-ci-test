@@ -4,7 +4,7 @@ defmodule Anoma.MixProject do
   def project do
     [
       app: :anoma,
-      version: "0.6.0",
+      version: "0.7.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -84,10 +84,13 @@ defmodule Anoma.MixProject do
 
   def group_for_extras() do
     [
+      "Guide Index": "documentation/index_docs.livemd",
       "Contributors Guide": ~r/documentation\/contributing\/.?/,
       "Contributors Guide": "documentation/CONTRIBUTING.livemd",
       "Visualizing Anoma": ~r/documentation\/visualization\/.?/,
-      "Visualizing Anoma": "documentation/visualization.livemd"
+      "Visualizing Anoma": "documentation/visualization.livemd",
+      "Nock Environment": ~r/documentation\/hoon\/.?/,
+      "Nock Environment": "documentation/hoon.livemd"
     ]
   end
 
@@ -95,6 +98,7 @@ defmodule Anoma.MixProject do
     [
       "README.md",
       "documentation/index.livemd",
+      "documentation/index_docs.livemd",
       "documentation/CONTRIBUTING.livemd",
       "documentation/contributing/iex.livemd",
       "documentation/contributing/observer.livemd",
@@ -102,7 +106,11 @@ defmodule Anoma.MixProject do
       "documentation/contributing/testing.livemd",
       "documentation/contributing/git.livemd",
       "documentation/visualization.livemd",
-      "documentation/visualization/actors.livemd"
+      "documentation/visualization/actors.livemd",
+      "documentation/hoon.livemd",
+      "documentation/hoon/dumping.livemd",
+      "documentation/hoon/setting-up.livemd",
+      "documentation/hoon/calling.livemd"
     ]
   end
 
@@ -136,6 +144,25 @@ defmodule Anoma.MixProject do
         preEl.insertAdjacentElement("afterend", graphEl);
         preEl.remove();
       });
+    }
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    for (const codeEl of document.querySelectorAll("pre code.vega-lite")) {
+      try {
+        const preEl = codeEl.parentElement;
+        const spec = JSON.parse(codeEl.textContent);
+        const plotEl = document.createElement("div");
+        preEl.insertAdjacentElement("afterend", plotEl);
+        vegaEmbed(plotEl, spec);
+        preEl.remove();
+      } catch (error) {
+        console.log("Failed to render Vega-Lite plot: " + error)
+      }
     }
     });
     </script>

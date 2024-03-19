@@ -5,11 +5,12 @@ defmodule Anoma.Node.Mempool.Communicator do
   alias Anoma.Communicator, as: ACom
 
   use TypedStruct
+  alias Anoma.Transaction
   alias Anoma.Node.Mempool.Primary
   alias Anoma.Node.Utility
 
   typedstruct do
-    field(:primary, GenServer.server(), require: true)
+    field(:primary, GenServer.server(), enforce: true)
     field(:subscribers, ACom.t(), default: ACom.new())
   end
 
@@ -33,7 +34,8 @@ defmodule Anoma.Node.Mempool.Communicator do
   @spec execute(GenServer.server()) :: non_neg_integer()
   @spec soft_reset(GenServer.server()) :: :ok
   @spec hard_reset(GenServer.server()) :: :ok
-  @spec tx(GenServer.server(), Noun.t()) :: Anoma.Transaction.t()
+  @spec tx(GenServer.server(), Transaction.execution()) ::
+          Anoma.Transaction.t()
   @spec pending_txs(GenServer.server()) :: list(Anoma.Transaction.t())
 
   defdelegate state(server), to: Primary
@@ -53,12 +55,12 @@ defmodule Anoma.Node.Mempool.Communicator do
 
   def handle_call({:tx, tx_code}, _from, state) do
     tx = Primary.tx(state.primary, tx_code)
-    Utility.broadcast(state.subscribers, {:submitted, tx})
-    {:reply, tx, state}
+    {:reply, tx, state, {:continue, {:broadcast_tx, tx}}}
   end
 
   def handle_call(:execute, _from, state) do
-    {:reply, Primary.execute(state.primary), state}
+    ex = Primary.execute(state.primary)
+    {:reply, ex, state, {:continue, {:broadcast_ex, ex}}}
   end
 
   def handle_call(:pending_txs, _from, state) do
@@ -72,6 +74,16 @@ defmodule Anoma.Node.Mempool.Communicator do
 
   def handle_cast(:hard_reset, state) do
     Primary.hard_reset(state.primary)
+    {:noreply, state}
+  end
+
+  def handle_continue({:broadcast_tx, tx}, state) do
+    Utility.broadcast(state.subscribers, {:submitted, tx})
+    {:noreply, state}
+  end
+
+  def handle_continue({:broadcast_ex, ex}, state) do
+    Utility.broadcast(state.subscribers, {:executed, ex})
     {:noreply, state}
   end
 
