@@ -35,6 +35,8 @@ defmodule Anoma.Node do
     field(:mempool, Router.addr())
     field(:mempool_topic, Router.addr())
     field(:pinger, Router.addr())
+    field(:clock, Router.addr())
+    field(:logger, Router.addr())
   end
 
   def start_link(args) do
@@ -59,16 +61,32 @@ defmodule Anoma.Node do
 
     {:ok, router} = Router.start()
 
+    {:ok, clock} =
+      Router.start_engine(router, Anoma.Node.Clock,
+        start: System.monotonic_time(:millisecond)
+      )
+
+    {:ok, logger} =
+      Router.start_engine(router, Anoma.Node.Logger,
+        storage: args[:storage],
+        clock: clock
+      )
+
     {:ok, ordering} =
       Router.start_engine(router, Anoma.Node.Storage.Ordering,
-        table: args[:storage]
+        table: args[:storage],
+        logger: logger
       )
 
     env = %{env | ordering: ordering}
     {:ok, executor_topic} = Router.new_topic(router)
 
     {:ok, executor} =
-      Router.start_engine(router, Anoma.Node.Executor, {env, executor_topic})
+      Router.start_engine(
+        router,
+        Anoma.Node.Executor,
+        {env, executor_topic, logger}
+      )
 
     {:ok, mempool_topic} = Router.new_topic(router)
 
@@ -77,7 +95,8 @@ defmodule Anoma.Node do
         block_storage: args[:block_storage],
         ordering: ordering,
         executor: executor,
-        topic: mempool_topic
+        topic: mempool_topic,
+        logger: logger
       )
 
     {:ok, pinger} =
@@ -94,6 +113,8 @@ defmodule Anoma.Node do
        executor: executor,
        mempool: mempool,
        pinger: pinger,
+       clock: clock,
+       logger: logger,
        executor_topic: executor_topic,
        mempool_topic: mempool_topic
      }}
