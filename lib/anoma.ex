@@ -45,3 +45,4 @@ defmodule Anoma do
     Supervisor.start_link(children, strategy: :one_for_one, name: Anoma)
   end
 end
+ 
