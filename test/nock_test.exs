@@ -2,41 +2,29 @@ defmodule AnomaTest.Nock do
   use ExUnit.Case, async: true
 
   import Nock
-  import Noun
+  import TestHelper.Nock
+  alias Anoma.{Storage, Order}
+  alias Anoma.Node.Storage.Communicator
 
   doctest(Nock)
 
-  def using_dec_core() do
-    arm = Noun.Format.parse_always("[8 [9 342 0 7] 9 2 10 [6 0 14] 0 2]")
-    sample = 999
-    [arm, sample | stdlib_core()]
-  end
+  setup_all do
+    storage = %Anoma.Storage{
+      qualified: AnomaTest.Nock.Qualified,
+      order: AnomaTest.Nock.Order
+    }
 
-  def factorial() do
-    arm = Noun.Format.parse_always("
-    [ 8
-      [1 1 0]
-      8
-      [ 1
-        6
-        [5 [0 30] 1 0]
-        [0 13]
-        9
-        2
-        10
-        [30 8 [9 342 0 31] 9 2 10 [6 0 62] 0 2]
-        10
-        [6 [8 [9 20 0 31] 9 2 10 [6 [0 29] 0 28] 0 2] 0 12]
-        0
-        1
-      ]
-      9
-      2
-      0
-      1
-    ]")
-    sample = 1
-    [arm, sample | stdlib_core()]
+    ordering = :nock_storage_com
+
+    unless Process.whereis(ordering) do
+      Anoma.Node.Storage.start_link(name: :nock_storage, table: storage)
+    end
+
+    snapshot_path = [:my_special_nock_snaphsot | 0]
+
+    env = %Nock{snapshot_path: snapshot_path, ordering: ordering}
+
+    [env: env]
   end
 
   describe "Basic functionality" do
@@ -52,6 +40,41 @@ defmodule AnomaTest.Nock do
   describe "Standard Library" do
     test "calling fib" do
       assert nock(factorial(), [9, 2, 10, [6, 1 | 7], 0 | 1]) == {:ok, 13}
+    end
+  end
+
+  describe "Scrying" do
+    test "successful scry", %{env: env} do
+      key = 777
+      id = System.unique_integer([:positive])
+      storage = Communicator.get_storage(env.ordering)
+      increment = increment_counter_val(key)
+
+      Storage.ensure_new(storage)
+
+      # setup id in the system for snapshot 1
+      Communicator.new_order(env.ordering, [Order.new(1, id, self())])
+      # put the key with some value
+      Storage.put(storage, key, 5)
+      # Now snapshot it so we can scry
+      Storage.put_snapshot(storage, hd(env.snapshot_path))
+      assert {:ok, val} = nock(increment, [9, 2, 10, [6, 1 | id], 0 | 1], env)
+      assert val == [777 | 6]
+    end
+
+    test "scry may return error if not found", %{env: env} do
+      key = 666
+      id = System.unique_integer([:positive])
+      storage = Communicator.get_storage(env.ordering)
+      increment = increment_counter_val(key)
+
+      Storage.ensure_new(storage)
+
+      # setup id in the system for snapshot 1
+      Communicator.new_order(env.ordering, [Order.new(1, id, self())])
+      # Now snapshot it so we can scry
+      Storage.put_snapshot(storage, hd(env.snapshot_path))
+      assert :error = nock(increment, [9, 2, 10, [6, 1 | id], 0 | 1], env)
     end
   end
 end
