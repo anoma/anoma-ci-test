@@ -3,6 +3,7 @@
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/calling.livemd
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/contributing.livemd
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/dumping.livemd
+/home/runner/work/anoma-ci-test/anoma-ci-test/doc/fema-analysis-pinger.livemd
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/git.livemd
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/hoon-1.livemd
 /home/runner/work/anoma-ci-test/anoma-ci-test/doc/hoon-2.livemd
@@ -115,9 +116,10 @@ dist/merriweather-latin-ext-300-normal-K6L27CZ5.woff2
 dist/merriweather-vietnamese-300-italic-EHHNZPUO.woff2
 dist/merriweather-vietnamese-300-normal-U376L4Z4.woff2
 dist/remixicon-NKANDIL5.woff2
-dist/search_data-0764CBBA.js
-dist/sidebar_items-BF10943E.js
+dist/search_data-D7F27E7B.js
+dist/sidebar_items-4C960831.js
 dumping.html
+fema-analysis-pinger.html
 git.html
 hoon-1.html
 hoon-2.html
