@@ -8,7 +8,7 @@
     <meta name="project" content="Anoma v0.11.0">
 
 
-    <title>Anoma.Node.Clock — Anoma v0.11.0</title>
+    <title>TOC — Anoma v0.11.0</title>
     <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
@@ -22,7 +22,7 @@
 
 
   </head>
-  <body data-type="modules" class="page-module">
+  <body data-type="extras" class="page-livemd">
     <script>
 
       try {
@@ -124,239 +124,55 @@ GUIDES
 
 <h1>
 
-  <span translate="no">Anoma.Node.Clock</span> 
-  <small class="app-vsn" translate="no">(Anoma v0.11.0)</small>
 
+  <span>TOC</span>
 </h1>
 
+  <div class="livebook-badge-container">
+    <a href="#" class="livebook-badge">
+      <img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook" width="150" />
+    </a>
+  </div>
 
-  <section id="moduledoc">
-<p>I am the implmentation of the Local Wall Clock Engine.</p><p>I provide info on the time elapsed in milliseconds after the node launched
-and the epoch from which it has been calculated using monotonic time.</p>
-  </section>
+<h2 id="index" class="section-heading">
+  <a href="#index" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Index</span>
+</h2>
+<ol><li><a href="toc.html">Toc</a></li><li><a href="contributing.html">Contributing</a><ol><li><a href="understanding-any-module.html">Understanding Any Module</a></li><li><a href="writing-documents.html">Writing Documents</a></li><li><a href="git.html">Git</a></li><li><a href="hoon.html">Hoon</a></li><li><a href="iex.html">Iex</a></li><li><a href="observer.html">Observer</a></li><li><a href="testing.html">Testing</a><ol><li><a href="running-tests.html">Running Tests</a></li><li><a href="writing-tests.html">Writing Tests</a></li></ol></li></ol></li><li><a href="visualization.html">Visualization</a><ol><li><a href="actors.html">Actors</a></li></ol></li><li><a href="hoon.html">Hoon</a><ol><li><a href="calling.html">Calling</a></li><li><a href="dumping.html">Dumping</a></li><li><a href="setting-up.html">Setting Up</a></li></ol></li><li><a href="vm_interface.html">Vm_interface</a></li></ol><h2 id="toc" class="section-heading">
+  <a href="#toc" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">TOC</span>
+</h2>
+<p>This notebook organizes a set of lessons to help you get started with Anoma!</p><p>This book uses livebook, it is best viewed from within it! However most sections can be viewed fine in github or your text editor.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
 
-
-  <section id="summary" class="details-list">
-    <h1 class="section-heading">
-      <a class="hover-link" href="#summary">
-        <i class="ri-link-m" aria-hidden="true"></i>
+      <a href="contributing.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Contributing
+        </span>
       </a>
-      <span class="text">Summary</span>
-    </h1>
-<div class="summary-types summary">
-  <h2>
-    <a href="#types">Types</a>
-  </h2>
 
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#t:t/0" translate="no">t()</a>
+  </div>
+  <div class="bottom-actions-item">
 
-      </div>
+      <a href="vm_interface.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Anoma VM interface
+        </span>
+      </a>
 
-    </div>
-
+  </div>
 </div>
-<div class="summary-functions summary">
-  <h2>
-    <a href="#functions">Functions</a>
-  </h2>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#get_epoch/1" translate="no">get_epoch(clock)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#get_time/1" translate="no">get_time(clock)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#handle_call/3" translate="no">handle_call(atom, from, state)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#init/1" translate="no">init(state)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#state/1" translate="no">state(server)</a>
-
-      </div>
-
-    </div>
-
-</div>
-
-  </section>
-
-
-  <section id="types" class="details-list">
-    <h1 class="section-heading">
-      <a class="hover-link" href="#types">
-        <i class="ri-link-m" aria-hidden="true"></i>
-      </a>
-      <span class="text">Types</span>
-    </h1>
-    <div class="types-list">
-<section class="detail" id="t:t/0">
-
-  <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" title="Link to this type">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <h1 class="signature" translate="no">t()</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@type</span> t() :: %Anoma.Node.Clock{start: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | nil}</pre>
-
-      </div>
-
-
-  </section>
-</section>
-
-    </div>
-  </section>
-
-  <section id="functions" class="details-list">
-    <h1 class="section-heading">
-      <a class="hover-link" href="#functions">
-        <i class="ri-link-m" aria-hidden="true"></i>
-      </a>
-      <span class="text">Functions</span>
-    </h1>
-    <div class="functions-list">
-<section class="detail" id="get_epoch/1">
-
-  <div class="detail-header">
-    <a href="#get_epoch/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">get_epoch(clock)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@spec</span> get_epoch(<a href="Anoma.Node.Router.Addr.html#t:t/0">Anoma.Node.Router.Addr.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
-
-      </div>
-
-
-  </section>
-</section>
-<section class="detail" id="get_time/1">
-
-  <div class="detail-header">
-    <a href="#get_time/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">get_time(clock)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@spec</span> get_time(<a href="Anoma.Node.Router.Addr.html#t:t/0">Anoma.Node.Router.Addr.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
-
-      </div>
-
-
-  </section>
-</section>
-<section class="detail" id="handle_call/3">
-
-  <div class="detail-header">
-    <a href="#handle_call/3" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">handle_call(atom, from, state)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="init/1">
-
-  <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">init(state)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="state/1">
-
-  <div class="detail-header">
-    <a href="#state/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">state(server)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@spec</span> state(<a href="Anoma.Node.Router.Addr.html#t:t/0">Anoma.Node.Router.Addr.t</a>()) :: <a href="#t:t/0">t</a>()</pre>
-
-      </div>
-
-
-  </section>
-</section>
-
-    </div>
-  </section>
-
       <footer class="footer">
         <p>
 
