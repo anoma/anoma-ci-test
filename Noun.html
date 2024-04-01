@@ -5,18 +5,18 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Anoma v0.10.0">
+    <meta name="project" content="Anoma v0.11.0">
 
 
-    <title>Noun — Anoma v0.10.0</title>
+    <title>Noun — Anoma v0.11.0</title>
     <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-A42A40B0.js"></script>
+    <script src="dist/sidebar_items-14FDD4DB.js"></script>
 
-      <script src="docs_config.js"></script>
+      <script src="./.doc-versions.js"></script>
 
     <script async src="dist/html-CILPWI2Q.js"></script>
 
@@ -53,7 +53,7 @@
 Anoma
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.10.0
+          v0.11.0
         </div>
       </div>
     </div>
@@ -71,6 +71,12 @@ GUIDES
         </li>
 
 
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
     </ul>
   </div>
 
@@ -82,6 +88,10 @@ GUIDES
       <ul id="modules-full-list" class="full-list"></ul>
     </div>
 
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
 
 </nav>
 
@@ -115,7 +125,7 @@ GUIDES
 <h1>
 
   <span translate="no">Noun</span> 
-  <small class="app-vsn" translate="no">(Anoma v0.10.0)</small>
+  <small class="app-vsn" translate="no">(Anoma v0.11.0)</small>
 
 </h1>
 
@@ -178,6 +188,14 @@ GUIDES
     <div class="summary-row">
       <div class="summary-signature">
         <a href="#atom_integer_to_binary/1" translate="no">atom_integer_to_binary(integer)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#atom_integer_to_binary/2" translate="no">atom_integer_to_binary(integer, length)</a>
 
       </div>
 
@@ -250,6 +268,14 @@ GUIDES
     <div class="summary-row">
       <div class="summary-signature">
         <a href="#normalize_noun_atom/1" translate="no">normalize_noun_atom(atom)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pad_trailing/2" translate="no">pad_trailing(binary, len)</a>
 
       </div>
 
@@ -401,6 +427,29 @@ GUIDES
           <pre translate="no"><span class="attribute">@spec</span> atom_integer_to_binary(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
 
           <pre translate="no"><span class="attribute">@spec</span> atom_integer_to_binary(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="atom_integer_to_binary/2">
+
+  <div class="detail-header">
+    <a href="#atom_integer_to_binary/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">atom_integer_to_binary(integer, length)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> atom_integer_to_binary(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
 
       </div>
 
@@ -604,6 +653,29 @@ GUIDES
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@spec</span> normalize_noun_atom(<a href="#t:noun_atom/0">noun_atom</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="pad_trailing/2">
+
+  <div class="detail-header">
+    <a href="#pad_trailing/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">pad_trailing(binary, len)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> pad_trailing(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
 
       </div>
 
