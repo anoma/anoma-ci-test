@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-EF4101E0.js"></script>
+    <script src="dist/sidebar_items-6AED042C.js"></script>
 
       <script src="./.doc-versions.js"></script>
 
@@ -158,19 +158,38 @@ GUIDES
   </a>
   <span class="text">Connect to Anoma</span>
 </h2>
-<p>One should connect the document to a locally running IEX instance of Anoma.</p><p>This let's you take advantage of the pre-installed <code class="inline">kino</code> tools, and lets you generate documentation/diagrams over real Anoma Code.</p><p>This can be achieved by click on runtime settings:</p><p><img src="https://fly.io/docs/images/livebook-runtime-link.webp" alt=""/></p><p>From here, click on configure and connect it to your running Anoma instance.</p><h2 id="making-diagrams" class="section-heading">
+<p>One should connect the document to a locally running IEX instance of Anoma.</p><p>This let's you take advantage of the pre-installed <code class="inline">kino</code> tools, and lets you generate documentation/diagrams over real Anoma Code.</p><p>This can be achieved by click on runtime settings:</p><div><img src="./files/writing-docs-configure-system.png" width="300" ></div><p>From here, click on configure and connect it to your running Anoma instance.</p><h2 id="making-diagrams" class="section-heading">
   <a href="#making-diagrams" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Making diagrams</span>
 </h2>
-<p>Diagrams are an import piece of documentation.</p><p>All the standard livebook tools can be used, but Anoma has some extra dependencies that can help creating documentation.</p><p>Namely under, the <code class="inline">+Smart</code> section, we can generate out various kinds of documents:</p><p><img src="https://pomf2.lain.la/f/aqdphlv9.png" alt=""/></p><h2 id="generating-the-index" class="section-heading">
+<p>Diagrams are an import piece of documentation.</p><p>All the standard livebook tools can be used, but Anoma has some extra dependencies that can help creating documentation.</p><p>Namely under, the <code class="inline">+Smart</code> section, we can generate out various kinds of documents:</p><p><img src="files/writing-docs-smart-box.png" alt=""/></p><p>The diagram will give you <a href="https://kroki.io/">Kroki diagrams</a>, and the UI will look something like this:</p><p><img src="files/writing-docs-kroki.png" alt=""/></p><p>However currently, due to a bug, writing text in the <code class="inline">Diagram source</code> will not change the generated diagram.</p><p>It is important to click the pencil icon, and edit it by hand.</p><h2 id="generating-the-index" class="section-heading">
   <a href="#generating-the-index" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Generating the index</span>
 </h2>
-<p><img src="https://pomf2.lain.la/f/aqdphlv9.png" alt=""/></p>
+<p>To have an Index for a document, one must have a section named <code class="inline">Index</code>.</p><p>Once one has the <code class="inline">Index</code>, one can generate it by running <a href="Mix.Tasks.Toc.html"><code class="inline">mix toc</code></a> or <code class="inline">make docs</code>.</p><p>Because livebook does not pull the files for changes, you may have to close the book and open it back up to have the relevant sections be up to date.</p><!-- livebook:{"branch_parent_index":5} --><h2 id="controlling-the-index-sections" class="section-heading">
+  <a href="#controlling-the-index-sections" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Controlling the index sections</span>
+</h2>
+<p>To control the order of the index, the project has a file that controls the ordering.</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;doc_order.exs&quot;</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">File</span><span class="o">.</span><span class="n">read!</span><span class="p" data-group-id="4423435858-1">(</span><span class="p" data-group-id="4423435858-1">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">IO</span><span class="o">.</span><span class="n">puts</span><span class="p" data-group-id="4423435858-2">(</span><span class="p" data-group-id="4423435858-2">)</span></code></pre><pre><code class="makeup output" translate="no"><span class="p" data-group-id="5259672571-1">[</span><span class="w">
+  </span><span class="p" data-group-id="5259672571-2">{</span><span class="s">&quot;documentation&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="p" data-group-id="5259672571-3">[</span><span class="w">
+     </span><span class="p" data-group-id="5259672571-4">{</span><span class="s">&quot;toc&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5259672571-5">[</span><span class="p" data-group-id="5259672571-5">]</span><span class="p" data-group-id="5259672571-4">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5259672571-6">{</span><span class="s">&quot;contributing&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="p" data-group-id="5259672571-7">[</span><span class="w">
+        </span><span class="p" data-group-id="5259672571-8">{</span><span class="s">&quot;understanding-any-module&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5259672571-9">[</span><span class="p" data-group-id="5259672571-9">]</span><span class="p" data-group-id="5259672571-8">}</span><span class="p">,</span><span class="w">
+        </span><span class="p" data-group-id="5259672571-10">{</span><span class="s">&quot;writing-documents&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5259672571-11">[</span><span class="p" data-group-id="5259672571-11">]</span><span class="p" data-group-id="5259672571-10">}</span><span class="w">
+      </span><span class="p" data-group-id="5259672571-7">]</span><span class="p" data-group-id="5259672571-6">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5259672571-12">{</span><span class="s">&quot;visualization&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5259672571-13">[</span><span class="p" data-group-id="5259672571-13">]</span><span class="p" data-group-id="5259672571-12">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5259672571-14">{</span><span class="s">&quot;hoon&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5259672571-15">[</span><span class="p" data-group-id="5259672571-15">]</span><span class="p" data-group-id="5259672571-14">}</span><span class="w">
+   </span><span class="p" data-group-id="5259672571-3">]</span><span class="p" data-group-id="5259672571-2">}</span><span class="w">
+</span><span class="p" data-group-id="5259672571-1">]</span><span class="w">
+</span></code></pre><pre><code class="makeup output" translate="no"><span class="ss">:ok</span></code></pre><p>This is a priority list of documents, so the higher up a document is, the higher it will be presented in the <code class="inline">index</code>.</p><p>Running <a href="Mix.Tasks.Toc.html"><code class="inline">mix toc</code></a> takes this into account. Note that to make sure your changes are reflected, run <strong>mix clean</strong> to make sure the wanted order is generated.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
