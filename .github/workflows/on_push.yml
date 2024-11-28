@@ -10,7 +10,9 @@ name: Push
 run-name: Push on `${{ github.ref_name }}`
 on:
   push:
-    branches: ["*", "!main", "!next"]
+    branches-ignore:
+      - 'main'
+      - 'next'
 
 jobs:
   compile:
