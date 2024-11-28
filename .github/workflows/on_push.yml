@@ -10,7 +10,7 @@ name: Push
 run-name: Push on `${{ github.ref_name }}`
 on:
   push:
-    branches:
+    branches: ["*", "!main", "!next"]
 
 jobs:
   compile:
