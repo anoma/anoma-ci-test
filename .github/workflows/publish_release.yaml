@@ -39,7 +39,7 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Display structure of downloaded files
-        run: ls -la apps/anoma_client
+        run: ls -la
 
       #---------------------------------------------------------------------------
       # Push artifacts for this release
