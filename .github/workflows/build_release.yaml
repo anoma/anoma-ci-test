@@ -63,8 +63,10 @@ jobs:
 
 
 
-      - name: rename the binary to include the elixir and otp versions
-        run: mv "apps/anoma_client/anoma_client" "releases/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
+      - name: move the binary into releases/ and name it with the build environment
+        run: |
+          mkdir -p releases
+          mv "apps/anoma_client/anoma_client" "releases/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
 
       - name: create artifact of the client binary
         uses: actions/upload-artifact@v4
