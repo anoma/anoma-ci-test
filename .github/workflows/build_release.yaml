@@ -57,7 +57,11 @@ jobs:
       - name: create the client binary
         continue-on-error: false
         shell: bash
-        run: MIX_ENV=prod mix do --app anoma_client escript.build
+        run: |
+          MIX_ENV=prod mix do --app anoma_client escript.build
+          ls -la apps/anoma_client/
+
+
 
       - name: rename the binary to include the elixir and otp versions
         run: mv "apps/anoma_client/anoma_client" "releases/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
