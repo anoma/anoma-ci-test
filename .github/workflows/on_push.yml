@@ -11,9 +11,6 @@ run-name: Push on `${{ github.ref_name }}`
 on:
   push:
     branches:
-      - "*"
-      - "!main"
-      - "!next"
 
 jobs:
   compile:
