@@ -52,5 +52,5 @@ jobs:
           GH_TOKEN: ${{ secrets.github_token }}
         run: |
           for f in artifacts/*; do
-              gh release upload "$(basename "$f")" --clobber $f
+              gh release upload ${{ github.ref_name }} --clobber $f
           done
