@@ -59,17 +59,10 @@ jobs:
         shell: bash
         run: |
           MIX_ENV=prod mix do --app anoma_client escript.build
-          ls -la apps/anoma_client/
-
-
-
-      - name: move the binary into releases/ and name it with the build environment
-        run: |
-          mkdir -p releases
-          mv "apps/anoma_client/anoma_client" "releases/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
+          mv "apps/anoma_client/anoma_client" "apps/anoma_client/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
 
       - name: create artifact of the client binary
         uses: actions/upload-artifact@v4
         with:
           name: anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}
-          path: "releases/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"
+          path: "apps/anoma_client/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}"

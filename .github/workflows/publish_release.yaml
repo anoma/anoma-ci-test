@@ -37,9 +37,11 @@ jobs:
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
+        with:
+          path: artifacts
 
       - name: Display structure of downloaded files
-        run: ls -la
+        run: ls -la artifacts
 
       #---------------------------------------------------------------------------
       # Push artifacts for this release
@@ -49,6 +51,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.github_token }}
         run: |
-          for f in releases/*; do
+          for f in artifacts/*; do
               gh release upload "$(basename "$f")" --clobber $f
           done
