@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Anoma v0.11.0">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="Anoma v0.28.0">
 
 
-    <title>Anoma.Crypto.Id — Anoma v0.11.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>Anoma.Crypto.Id — Anoma v0.28.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-4C960831.js"></script>
-
-      <script src="./.doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-E5C3E840.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-YIPIRHGU.js"></script>
 
   </head>
   <body data-type="modules" class="page-module">
@@ -37,9 +34,9 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -53,7 +50,7 @@
 Anoma
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.11.0
+          v0.28.0
         </div>
       </div>
     </div>
@@ -97,43 +94,45 @@ GUIDES
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Anoma</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Anoma</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <h1>
 
-  <span translate="no">Anoma.Crypto.Id</span> 
-  <small class="app-vsn" translate="no">(Anoma v0.11.0)</small>
+    <span translate="no">Anoma.Crypto.Id</span> 
+    <small class="app-vsn" translate="no">(Anoma v0.28.0)</small>
 
-</h1>
+  </h1>
 
 
-  <section id="moduledoc">
+    <section id="moduledoc">
 <p>I represent the Identity</p>
-  </section>
+    </section>
 
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
@@ -149,7 +148,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:identities/0" translate="no">identities()</a>
+        <a href="#t:identities/0" data-no-tooltip translate="no">identities()</a>
 
       </div>
 
@@ -157,7 +156,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:t/0" translate="no">t()</a>
+        <a href="#t:t/0" data-no-tooltip translate="no">t()</a>
 
       </div>
 
@@ -171,7 +170,17 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#decode/1" translate="no">decode(arg)</a>
+        <a href="#external_id/1" data-no-tooltip translate="no">external_id(extern)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Grabs the external id of a given key</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#new_keypair/0" data-no-tooltip translate="no">new_keypair()</a>
 
       </div>
 
@@ -179,46 +188,18 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#encode/2" translate="no">encode(id, atom)</a>
+        <a href="#salt_keys/2" data-no-tooltip translate="no">salt_keys(id, sym)</a>
 
       </div>
 
-        <div class="summary-synopsis"><p>Serializes it for Mnesia</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#initalize/2" translate="no">initalize(table, kind \\ :ram_copies)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>I initialize the table to be used locally.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#new_keypair/0" translate="no">new_keypair()</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#salt_keys/2" translate="no">salt_keys(id, sym)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>I salt the given keys for storage further storage. Or for storage
+        <div class="summary-synopsis"><p>I salt the given keys for further storage. Or for storage
 lookup</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#seal/2" translate="no">seal(message, extern)</a>
+        <a href="#seal/2" data-no-tooltip translate="no">seal(message, extern)</a>
 
       </div>
 
@@ -226,7 +207,15 @@ lookup</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#unsalt_keys/2" translate="no">unsalt_keys(id, sym)</a>
+        <a href="#truncated_key_string/1" data-no-tooltip translate="no">truncated_key_string(key)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#unsalt_keys/2" data-no-tooltip translate="no">unsalt_keys(id, sym)</a>
 
       </div>
 
@@ -236,7 +225,7 @@ lookup</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#verify/2" translate="no">verify(message, extern)</a>
+        <a href="#verify/2" data-no-tooltip translate="no">verify(message, extern)</a>
 
       </div>
 
@@ -258,7 +247,7 @@ lookup</p></div>
 <section class="detail" id="t:identities/0">
 
   <div class="detail-header">
-    <a href="#t:identities/0" class="detail-link" title="Link to this type">
+    <a href="#t:identities/0" class="detail-link" data-no-tooltip title="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this type</span>
     </a>
@@ -281,7 +270,7 @@ lookup</p></div>
 <section class="detail" id="t:t/0">
 
   <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" title="Link to this type">
+    <a href="#t:t/0" class="detail-link" data-no-tooltip title="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this type</span>
     </a>
@@ -318,14 +307,14 @@ lookup</p></div>
       <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
-<section class="detail" id="decode/1">
+<section class="detail" id="external_id/1">
 
   <div class="detail-header">
-    <a href="#decode/1" class="detail-link" title="Link to this function">
+    <a href="#external_id/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">decode(arg)</h1>
+    <h1 class="signature" translate="no">external_id(extern)</h1>
 
 
   </div>
@@ -334,76 +323,17 @@ lookup</p></div>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> decode(
-  {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="Anoma.Crypto.Sign.html#t:public/0">Anoma.Crypto.Sign.public</a>(), <a href="Anoma.Crypto.Encrypt.html#t:public/0">Anoma.Crypto.Encrypt.public</a>(),
-   <a href="Anoma.Crypto.Sign.html#t:secret/0">Anoma.Crypto.Sign.secret</a>(), <a href="Anoma.Crypto.Encrypt.html#t:secret/0">Anoma.Crypto.Encrypt.secret</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()}
-) :: <a href="#t:t/0">t</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> external_id(<a href="#t:t/0">t</a>() | <a href="Anoma.Crypto.Id.Extern.html#t:t/0">Anoma.Crypto.Id.Extern.t</a>()) :: <a href="Anoma.Crypto.Id.Extern.html#t:t/0">Anoma.Crypto.Id.Extern.t</a>()</pre>
 
       </div>
 
-
-  </section>
-</section>
-<section class="detail" id="encode/2">
-
-  <div class="detail-header">
-    <a href="#encode/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">encode(id, atom)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@spec</span> encode(<a href="#t:t/0">t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()) ::
-  {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="Anoma.Crypto.Sign.html#t:public/0">Anoma.Crypto.Sign.public</a>(), <a href="Anoma.Crypto.Encrypt.html#t:public/0">Anoma.Crypto.Encrypt.public</a>(),
-   <a href="Anoma.Crypto.Sign.html#t:secret/0">Anoma.Crypto.Sign.secret</a>(), <a href="Anoma.Crypto.Encrypt.html#t:secret/0">Anoma.Crypto.Encrypt.secret</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()}</pre>
-
-      </div>
-
-<p>Serializes it for Mnesia</p>
-  </section>
-</section>
-<section class="detail" id="initalize/2">
-
-    <span id="initalize/1"></span>
-
-  <div class="detail-header">
-    <a href="#initalize/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">initalize(table, kind \\ :ram_copies)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@spec</span> initalize(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), :ram_copies | :disc_copies | :rocksdb_copies) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()</pre>
-
-      </div>
-
-<p>I initialize the table to be used locally.</p><h3 id="initalize/2-parameters" class="section-heading">
-  <a href="#initalize/2-parameters" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Parameters</span>
-</h3>
-<ul><li><code class="inline">table</code> - the table name to store the data under</li><li><code class="inline">kind</code> - the kind of table this should be</li></ul>
+<p>Grabs the external id of a given key</p><p>Useful when we want to use id and the external as interchangeable</p>
   </section>
 </section>
 <section class="detail" id="new_keypair/0">
 
   <div class="detail-header">
-    <a href="#new_keypair/0" class="detail-link" title="Link to this function">
+    <a href="#new_keypair/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -426,7 +356,7 @@ lookup</p></div>
 <section class="detail" id="salt_keys/2">
 
   <div class="detail-header">
-    <a href="#salt_keys/2" class="detail-link" title="Link to this function">
+    <a href="#salt_keys/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -443,14 +373,14 @@ lookup</p></div>
 
       </div>
 
-<p>I salt the given keys for storage further storage. Or for storage
+<p>I salt the given keys for further storage. Or for storage
 lookup</p><p>I can be used on <code class="inline">t </code>, <code class="inline">Intern.t </code> or <code class="inline">Extern.t </code>.</p><ul><li><code class="inline">t </code> is useful for salting for storage</li><li><code class="inline">Extern.t </code> is useful for looking up keys for storage</li><li><code class="inline">Intern.t </code> is useful in case one wants to see the salted key</li></ul>
   </section>
 </section>
 <section class="detail" id="seal/2">
 
   <div class="detail-header">
-    <a href="#seal/2" class="detail-link" title="Link to this function">
+    <a href="#seal/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -470,10 +400,33 @@ lookup</p><p>I can be used on <code class="inline">t </code>, <code class="inlin
 
   </section>
 </section>
+<section class="detail" id="truncated_key_string/1">
+
+  <div class="detail-header">
+    <a href="#truncated_key_string/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">truncated_key_string(key)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> truncated_key_string(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
 <section class="detail" id="unsalt_keys/2">
 
   <div class="detail-header">
-    <a href="#unsalt_keys/2" class="detail-link" title="Link to this function">
+    <a href="#unsalt_keys/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -496,7 +449,7 @@ lookup</p><p>I can be used on <code class="inline">t </code>, <code class="inlin
 <section class="detail" id="verify/2">
 
   <div class="detail-header">
-    <a href="#verify/2" class="detail-link" title="Link to this function">
+    <a href="#verify/2" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -521,34 +474,40 @@ lookup</p><p>I can be used on <code class="inline">t </code>, <code class="inlin
     </div>
   </section>
 
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
           <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+            <a href="https://hex.pm/packages/anoma/0.28.0" class="footer-hex-package">Hex Package</a>
 
-              <a href="Anoma.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="https://preview.hex.pm/preview/anoma/0.28.0">Hex Preview</a>
 
           </span>
-        </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+            <a href="Anoma.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        </p>
-      </footer>
-    </div>
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {

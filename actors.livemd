@@ -6,44 +6,44 @@
 1. [Toc](./../toc.livemd)
 2. [Contributing](./../contributing.livemd)
    1. [Understanding Any Module](./../contributing/understanding-any-module.livemd)
-   2. [Writing Documents](./../contributing/writing-documents.livemd)
-   3. [Git](./../contributing/git.livemd)
-   4. [Hoon](./../contributing/hoon.livemd)
-   5. [Iex](./../contributing/iex.livemd)
-   6. [Observer](./../contributing/observer.livemd)
-   7. [Testing](./../contributing/testing.livemd)
+   2. [Style Guide](./../contributing/style-guide.livemd)
+   3. [Writing Documents](./../contributing/writing-documents.livemd)
+   4. [Examples Over Testing](./../contributing/examples-over-testing.livemd)
+   5. [Git](./../contributing/git.livemd)
+   6. [Iex](./../contributing/iex.livemd)
+   7. [Mnesia Vs Actor State](./../contributing/mnesia-vs-actor-state.livemd)
+   8. [Observer](./../contributing/observer.livemd)
+   9. [Testing](./../contributing/testing.livemd)
       1. [Running Tests](./../contributing/testing/running-tests.livemd)
       2. [Writing Tests](./../contributing/testing/writing-tests.livemd)
-8. [Visualization](./../visualization.livemd)
+3. [Visualization](./../visualization.livemd)
    1. [Actors](./../visualization/actors.livemd)
 4. [Hoon](./../hoon.livemd)
    1. [Calling](./../hoon/calling.livemd)
    2. [Dumping](./../hoon/dumping.livemd)
    3. [Setting Up](./../hoon/setting-up.livemd)
 5. [Analysis](./../analysis.livemd)
-   1. [Fema Analysis Pinger](./../analysis/fema-analysis-pinger.livemd)
-6. [Vm_interface](./../vm_interface.livemd)
 
 ## An overview of Anoma
 
 A good overview of Actors can be seen by looking at the supervision tree of Anoma itself.
 
 ```elixir
-{_, [pid1, pid2]} = Process.info(Process.whereis(:anoma), :links)
-Kino.Process.render_sup_tree(pid2, direction: :left_right)
+Kino.Process.render_app_tree(:anoma_node, direction: :left_right)
 ```
 
 <!-- livebook:{"output":true} -->
 
 ```mermaid
 graph LR;
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 1(Anoma.Node.Router hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 2(Anoma.Node.Clock plaqCqOIQ4LLCT9MAmEMV+qkqZq4+qZV2KSpqSxRZu0=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 3(Anoma.Node.Logger BDTPKlJ5ubxM9NMrbgMzxE5jfKKn+qwnxISeroCw3xc=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 4(Anoma.Node.Storage.Ordering rVQnNBPLju9VBsHOQzAdKaEXRK2u03vF8huvKzVPyT8=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 5(Anoma.Node.Executor po4ivXyVtjQ9jvTtra0D2DbKIpM8YOClCmfk8JLp31k=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 6(Anoma.Node.Mempool yg3U9BqClfT+jJkwbtuYm2WCmIgR+f6ELjodD5P4eko=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 7(Anoma.Node.Pinger Oc96nqV6/0FFT/JULG5Ep+Z1c62/8f1Bi0gY9CVmJhs=):::worker
+application_master(#PID<0.875.0>):::supervisor ---> supervisor_ancestor;
+supervisor_ancestor(#PID<0.876.0>):::supervisor ---> 0;
+0(Anoma.Node.Supervisor):::root ---> 1(Anoma.Node.Transport.Supervisor):::supervisor
+0(Anoma.Node.Supervisor):::root ---> 6(Anoma.Node.Transaction.Supervisor):::supervisor
+1(Anoma.Node.Transport.Supervisor):::supervisor ---> 2(ProxySupervisor):::supervisor
+1(Anoma.Node.Transport.Supervisor):::supervisor ---> 3(Anoma.Node.Transport.TCPSupervisor):::supervisor
+1(Anoma.Node.Transport.Supervisor):::supervisor ---> 4(ProxyRegister):::supervisor
+4(ProxyRegister):::supervisor ---> 5(ProxyRegister.PIDPartition0):::worker
 classDef root fill:#c4b5fd, stroke:#374151, stroke-width:4px;
 classDef supervisor fill:#c4b5fd, stroke:#374151, stroke-width:1px;
 classDef worker fill:#93c5fd, stroke:#374151, stroke-width:1px;
@@ -62,16 +62,10 @@ mempool, as it orchastrates the other actors in Anoma to act
 First we will create a transaction and see how that changes the base supervision tree before executing
 
 ```elixir
-alias Anoma.Storage
-alias Anoma.Node.Storage.Ordering
+alias Anoma.Node.Ordering
 alias Anoma.Node.Mempool
 alias Anoma.Node.Router
 import TestHelper.Nock
-
-storage = %Anoma.Storage{
-  qualified: Anoma.Qualified,
-  order: Anoma.Order
-}
 
 name = :anoma
 node = Anoma.Node.state(name)
@@ -100,7 +94,7 @@ graph LR;
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 1(Anoma.Node.Router hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::worker
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 2(Anoma.Node.Clock plaqCqOIQ4LLCT9MAmEMV+qkqZq4+qZV2KSpqSxRZu0=):::worker
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 3(Anoma.Node.Logger BDTPKlJ5ubxM9NMrbgMzxE5jfKKn+qwnxISeroCw3xc=):::worker
-0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 4(Anoma.Node.Storage.Ordering rVQnNBPLju9VBsHOQzAdKaEXRK2u03vF8huvKzVPyT8=):::worker
+0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 4(Anoma.Node.Ordering rVQnNBPLju9VBsHOQzAdKaEXRK2u03vF8huvKzVPyT8=):::worker
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 5(Anoma.Node.Executor po4ivXyVtjQ9jvTtra0D2DbKIpM8YOClCmfk8JLp31k=):::worker
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 6(Anoma.Node.Mempool yg3U9BqClfT+jJkwbtuYm2WCmIgR+f6ELjodD5P4eko=):::worker
 0(supervisor hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=):::root ---> 7(Anoma.Node.Pinger Oc96nqV6/0FFT/JULG5Ep+Z1c62/8f1Bi0gY9CVmJhs=):::worker
@@ -120,7 +114,7 @@ Kino.Process.render_seq_trace(
   fn ->
     Mempool.execute(node.mempool)
   end,
-  message_label: &Anoma.Node.Utility.message_label/1
+  message_label: &Anoma.Utility.message_label/1
 )
 ```
 
@@ -133,7 +127,7 @@ participant 7 AS mnesia_locker;
 participant 6 AS mnesia_tm;
 participant 8 AS Anoma.Node.Router hWXJ+NujE76g6g4X5Bu+KH1YtSKrur7yDUfeu0JguKY=;
 participant 2 AS Anoma.Node.Logger BDTPKlJ5ubxM9NMrbgMzxE5jfKKn+qwnxISeroCw3xc=;
-participant 4 AS Anoma.Node.Storage.Ordering rVQnNBPLju9VBsHOQzAdKaEXRK2u03vF8huvKzVPyT8=;
+participant 4 AS Anoma.Node.Ordering rVQnNBPLju9VBsHOQzAdKaEXRK2u03vF8huvKzVPyT8=;
 participant 1 AS Anoma.Node.Mempool yg3U9BqClfT+jJkwbtuYm2WCmIgR+f6ELjodD5P4eko=;
 participant 0 AS self();
 participant 5 AS #35;PID<0.438.0>;
@@ -188,7 +182,7 @@ We can also see what processes startup when we start an execution
 Kino.Process.render_seq_trace(
   [Process.whereis(node.mempool.server)],
   fn -> Mempool.tx(node.mempool, {:kv, increment_counter_val(555)}).pid() end,
-  message_label: &Anoma.Node.Utility.message_label/1
+  message_label: &Anoma.Utility.message_label/1
 )
 ```
 
@@ -202,7 +196,7 @@ Kino.Process.render_seq_trace(
 Kino.Process.render_seq_trace(
   :all,
   fn -> Anoma.Node.Logger.add(node.logger, :info, "help") end,
-  message_label: &Anoma.Node.Utility.message_label/1
+  message_label: &Anoma.Utility.message_label/1
 )
 ```
 

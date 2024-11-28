@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Anoma v0.11.0">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="Anoma v0.28.0">
 
 
-    <title>Anoma.Node — Anoma v0.11.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>Anoma.Node — Anoma v0.28.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-4C960831.js"></script>
-
-      <script src="./.doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-E5C3E840.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-YIPIRHGU.js"></script>
 
   </head>
   <body data-type="modules" class="page-module">
@@ -37,9 +34,9 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -53,7 +50,7 @@
 Anoma
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.11.0
+          v0.28.0
         </div>
       </div>
     </div>
@@ -97,63 +94,41 @@ GUIDES
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Anoma</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Anoma</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <h1>
 
-  <span translate="no">Anoma.Node</span> 
-  <small class="app-vsn" translate="no">(Anoma v0.11.0)</small>
+    <span translate="no">Anoma.Node</span> 
+    <small class="app-vsn" translate="no">(Anoma v0.28.0)</small>
 
-</h1>
+  </h1>
 
 
-  <section id="moduledoc">
-<p>I act as a registry for Anoma Nodes</p><p>There are two ways to launch a Node. Either with minimal
-arguments or having the full specification for all the
-engines, including their external ID's.</p><p>All inputs should come in format of a list of atom-value
-2-tuples, <code class="inline">{:settings, map()}</code> specifying the info on
-all relevant engines and storages possibly including their
-tables presented in a dumped format, <code class="inline">{:name, atom()}</code>
-specifying the name of the node, and <code class="inline">{:new_storage, bool()}</code>
-specifying whether the table names, if supplied, need to be
-set-up without any deletions.</p><p>For more info on format check <a href="#start_min/1"><code class="inline">start_min/1</code></a></p><h2 id="module-minimal-arguments" class="section-heading">
-  <a href="#module-minimal-arguments" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Minimal Arguments</span>
-</h2>
-<ul><li><code class="inline">name</code> - name for this process</li><li><p><code class="inline">snapshot_path</code> : [<code class="inline">atom()</code> | 0]</p><ul><li>A snapshot location for the service (used in the worker)</li></ul></li><li><code class="inline">storage</code> : <code class="inline">Anoma.Storage.t()</code> - The Storage tables to use</li><li><code class="inline">block_storage</code> - a location to store the blocks produced</li></ul><h3 id="module-created-tables" class="section-heading">
-  <a href="#module-created-tables" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Created Tables</span>
-</h3>
-<ul><li><code class="inline">storage.qualified</code></li><li><code class="inline">storage.order</code></li><li><code class="inline">block_storage</code></li></ul>
-  </section>
-
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
@@ -162,20 +137,6 @@ set-up without any deletions.</p><p>For more info on format check <a href="#star
       </a>
       <span class="text">Summary</span>
     </h1>
-<div class="summary-types summary">
-  <h2>
-    <a href="#types">Types</a>
-  </h2>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#t:t/0" translate="no">t()</a>
-
-      </div>
-
-    </div>
-
-</div>
 <div class="summary-functions summary">
   <h2>
     <a href="#functions">Functions</a>
@@ -183,53 +144,21 @@ set-up without any deletions.</p><p>For more info on format check <a href="#star
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#child_spec/1" translate="no">child_spec(init_arg)</a>
+        <a href="#example_random_id/0" data-no-tooltip translate="no">example_random_id()</a>
 
       </div>
 
-        <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor.</p></div>
+        <div class="summary-synopsis"><p>I am the random ID generator for examples.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#init/1" translate="no">init(args)</a>
+        <a href="#prefix_random_id/1" data-no-tooltip translate="no">prefix_random_id(string)</a>
 
       </div>
 
-        <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#start_link/1" translate="no">start_link(args)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>I assume I am fed a list with atom-value 2-tuples
-:new_storage, :name, :settings. If :new_storage has
-value true, I need a snapshot_path: key in the
-settings.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#start_min/1" translate="no">start_min(args)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>Given minimal arguments, I create appropriate setup for the
-<code class="inline">:settings</code> argument for Node initialization.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#state/1" translate="no">state(nodes)</a>
-
-      </div>
+        <div class="summary-synopsis"><p>I am the random ID generator with prefixed string.</p></div>
 
     </div>
 
@@ -237,51 +166,6 @@ settings.</p></div>
 
   </section>
 
-
-  <section id="types" class="details-list">
-    <h1 class="section-heading">
-      <a class="hover-link" href="#types">
-        <i class="ri-link-m" aria-hidden="true"></i>
-      </a>
-      <span class="text">Types</span>
-    </h1>
-    <div class="types-list">
-<section class="detail" id="t:t/0">
-
-  <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" title="Link to this type">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <h1 class="signature" translate="no">t()</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@type</span> t() :: %Anoma.Node{
-  clock: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  executor: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  executor_topic: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  logger: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  mempool: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  mempool_topic: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  ordering: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  pinger: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>(),
-  router: <a href="Anoma.Node.Router.html#t:addr/0">Anoma.Node.Router.addr</a>()
-}</pre>
-
-      </div>
-
-
-  </section>
-</section>
-
-    </div>
-  </section>
 
   <section id="functions" class="details-list">
     <h1 class="section-heading">
@@ -291,131 +175,90 @@ settings.</p></div>
       <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
-<section class="detail" id="child_spec/1">
+<section class="detail" id="example_random_id/0">
 
   <div class="detail-header">
-    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+    <a href="#example_random_id/0" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">child_spec(init_arg)</h1>
+    <h1 class="signature" translate="no">example_random_id()</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Returns a specification to start this module under a supervisor.</p><p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> example_random_id() :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>I am the random ID generator for examples.</p><p>I call <a href="#prefix_random_id/1"><code class="inline">prefix_random_id/1</code></a> with argument <code class="inline">example_</code></p>
   </section>
 </section>
-<section class="detail" id="init/1">
+<section class="detail" id="prefix_random_id/1">
 
   <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#prefix_random_id/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">init(args)</h1>
+    <h1 class="signature" translate="no">prefix_random_id(string)</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="start_link/1">
+      <div class="specs">
 
-  <div class="detail-header">
-    <a href="#start_link/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">start_link(args)</h1>
+          <pre translate="no"><span class="attribute">@spec</span> prefix_random_id(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
 
+      </div>
 
-  </div>
-
-  <section class="docstring">
-
-<p>I assume I am fed a list with atom-value 2-tuples
-:new_storage, :name, :settings. If :new_storage has
-value true, I need a snapshot_path: key in the
-settings.</p><p>I ensure that the storages are deleted and created.
-Afterwards, if the storage is truly new, I put the snapshot
-in the ordering. Otherwise, I simply repopulate the tables
-from a supplied list by the settings.
-Check Anoma.Dump for format descriptions.</p>
-  </section>
-</section>
-<section class="detail" id="start_min/1">
-
-  <div class="detail-header">
-    <a href="#start_min/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">start_min(args)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-<p>Given minimal arguments, I create appropriate setup for the
-<code class="inline">:settings</code> argument for Node initialization.</p>
-  </section>
-</section>
-<section class="detail" id="state/1">
-
-  <div class="detail-header">
-    <a href="#state/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">state(nodes)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-
+<p>I am the random ID generator with prefixed string.</p><p>I concatenate a given string with a random base 16 string.</p>
   </section>
 </section>
 
     </div>
   </section>
 
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
           <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+            <a href="https://hex.pm/packages/anoma/0.28.0" class="footer-hex-package">Hex Package</a>
 
-              <a href="Anoma.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="https://preview.hex.pm/preview/anoma/0.28.0">Hex Preview</a>
 
           </span>
-        </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+            <a href="Anoma.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        </p>
-      </footer>
-    </div>
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {

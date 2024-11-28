@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Anoma v0.11.0">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="Anoma v0.28.0">
 
 
-    <title>Nock.Jets — Anoma v0.11.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>Nock.Jets — Anoma v0.28.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-4C960831.js"></script>
-
-      <script src="./.doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-E5C3E840.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-YIPIRHGU.js"></script>
 
   </head>
   <body data-type="modules" class="page-module">
@@ -37,9 +34,9 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -53,7 +50,7 @@
 Anoma
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.11.0
+          v0.28.0
         </div>
       </div>
     </div>
@@ -97,43 +94,45 @@ GUIDES
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Anoma</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Anoma</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <h1>
 
-  <span translate="no">Nock.Jets</span> 
-  <small class="app-vsn" translate="no">(Anoma v0.11.0)</small>
+    <span translate="no">Nock.Jets</span> 
+    <small class="app-vsn" translate="no">(Anoma v0.28.0)</small>
 
-</h1>
+  </h1>
 
 
-  <section id="moduledoc">
+    <section id="moduledoc">
 <p>Jets for the Nock interpreter, taking a gate core. Not fully general.</p>
-  </section>
+    </section>
 
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
@@ -149,7 +148,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#add/1" translate="no">add(core)</a>
+        <a href="#abs/1" data-no-tooltip translate="no">abs(core)</a>
 
       </div>
 
@@ -157,7 +156,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#dec/1" translate="no">dec(core)</a>
+        <a href="#add/1" data-no-tooltip translate="no">add(core)</a>
 
       </div>
 
@@ -165,7 +164,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#div/1" translate="no">div(core)</a>
+        <a href="#bex/1" data-no-tooltip translate="no">bex(core)</a>
 
       </div>
 
@@ -173,7 +172,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#gte/1" translate="no">gte(core)</a>
+        <a href="#calculate_core_param/3" data-no-tooltip translate="no">calculate_core_param(core_index, gate_index, parent_layer)</a>
 
       </div>
 
@@ -181,7 +180,47 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#gth/1" translate="no">gth(core)</a>
+        <a href="#calculate_mug_of_core/2" data-no-tooltip translate="no">calculate_mug_of_core(index_in_core, parent_layer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>We calculate the mug of a given core at a given gate.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#calculate_mug_of_layer/1" data-no-tooltip translate="no">calculate_mug_of_layer(layer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>We calculate the mug of a given layer at any given gate.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#calculate_mug_of_param_core/3" data-no-tooltip translate="no">calculate_mug_of_param_core(index_in_core, core_index, parent_layer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Like <a href="#calculate_mug_of_core/2"><code class="inline">calculate_mug_of_core/2</code></a> except we work over a parameterized core.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#calculate_mug_of_param_layer/2" data-no-tooltip translate="no">calculate_mug_of_param_layer(core_index, parent_layer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Like <a href="#calculate_mug_of_layer/1"><code class="inline">calculate_mug_of_layer/1</code></a> except we work over a parameterized core.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#cmp/1" data-no-tooltip translate="no">cmp(core)</a>
 
       </div>
 
@@ -189,7 +228,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#lte/1" translate="no">lte(core)</a>
+        <a href="#cue/1" data-no-tooltip translate="no">cue(core)</a>
 
       </div>
 
@@ -197,7 +236,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#lth/1" translate="no">lth(core)</a>
+        <a href="#dec/1" data-no-tooltip translate="no">dec(core)</a>
 
       </div>
 
@@ -205,7 +244,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mod/1" translate="no">mod(core)</a>
+        <a href="#dif/1" data-no-tooltip translate="no">dif(core)</a>
 
       </div>
 
@@ -213,7 +252,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mul/1" translate="no">mul(core)</a>
+        <a href="#div/1" data-no-tooltip translate="no">div(core)</a>
 
       </div>
 
@@ -221,7 +260,7 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#sample/1" translate="no">sample(arg1)</a>
+        <a href="#dul/1" data-no-tooltip translate="no">dul(core)</a>
 
       </div>
 
@@ -229,7 +268,199 @@ GUIDES
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#sub/1" translate="no">sub(core)</a>
+        <a href="#fra/1" data-no-tooltip translate="no">fra(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#gte/1" data-no-tooltip translate="no">gte(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#gth/1" data-no-tooltip translate="no">gth(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#jam/1" data-no-tooltip translate="no">jam(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#lsh/1" data-no-tooltip translate="no">lsh(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#lte/1" data-no-tooltip translate="no">lte(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#lth/1" data-no-tooltip translate="no">lth(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#met/1" data-no-tooltip translate="no">met(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#mix/1" data-no-tooltip translate="no">mix(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#mod/1" data-no-tooltip translate="no">mod(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#mul/1" data-no-tooltip translate="no">mul(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#nend/1" data-no-tooltip translate="no">nend(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pro/1" data-no-tooltip translate="no">pro(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#rem/1" data-no-tooltip translate="no">rem(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#rsh/1" data-no-tooltip translate="no">rsh(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sample/1" data-no-tooltip translate="no">sample(arg1)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#shax/1" data-no-tooltip translate="no">shax(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sign/1" data-no-tooltip translate="no">sign(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sign_detatched/1" data-no-tooltip translate="no">sign_detatched(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sub/1" data-no-tooltip translate="no">sub(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sum/1" data-no-tooltip translate="no">sum(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sun/1" data-no-tooltip translate="no">sun(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#syn/1" data-no-tooltip translate="no">syn(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#verify/1" data-no-tooltip translate="no">verify(core)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#verify_detatched/1" data-no-tooltip translate="no">verify_detatched(core)</a>
 
       </div>
 
@@ -248,10 +479,33 @@ GUIDES
       <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
+<section class="detail" id="abs/1">
+
+  <div class="detail-header">
+    <a href="#abs/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">abs(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> abs(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
 <section class="detail" id="add/1">
 
   <div class="detail-header">
-    <a href="#add/1" class="detail-link" title="Link to this function">
+    <a href="#add/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -262,13 +516,262 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> add(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="bex/1">
+
+  <div class="detail-header">
+    <a href="#bex/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">bex(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> bex(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="calculate_core_param/3">
+
+  <div class="detail-header">
+    <a href="#calculate_core_param/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">calculate_core_param(core_index, gate_index, parent_layer)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> calculate_core_param(
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()
+) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="calculate_mug_of_core/2">
+
+  <div class="detail-header">
+    <a href="#calculate_mug_of_core/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">calculate_mug_of_core(index_in_core, parent_layer)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> calculate_mug_of_core(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()</pre>
+
+      </div>
+
+<p>We calculate the mug of a given core at a given gate.</p><h3 id="calculate_mug_of_core/2-parameters" class="section-heading">
+  <a href="#calculate_mug_of_core/2-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Parameters</span>
+</h3>
+<ul><li><p><code class="inline">index_in_core</code> - the index of the gate itself</p></li><li><p><code class="inline">parent_layer</code> - the layer of the standard library. This should be
+the same as the layer numbers found in <code class="inline">anoma.hoon</code></p></li></ul><h3 id="calculate_mug_of_core/2-example" class="section-heading">
+  <a href="#calculate_mug_of_core/2-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example</span>
+</h3>
+<p>In the Hoon repl one should write</p><pre><code class="makeup elixir" translate="no"><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="n">commit</span><span class="w"> </span><span class="p">%</span><span class="n">anoma</span><span class="w">
+</span><span class="o">&gt;=</span><span class="w">
+</span><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="n">anoma</span><span class="w"> </span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="o">=</span><span class="n">anoma</span><span class="o">=</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">anoma</span><span class="o">/</span><span class="n">hoon</span><span class="w">
+</span><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w">  </span><span class="n">anoma</span><span class="w">  </span><span class="o">!=</span><span class="p" data-group-id="4659163324-1">(</span><span class="n">sub</span><span class="p" data-group-id="4659163324-1">)</span><span class="w">
+</span><span class="p" data-group-id="4659163324-2">[</span><span class="mi">9</span><span class="w"> </span><span class="mi">47</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">31</span><span class="p" data-group-id="4659163324-2">]</span></code></pre><p>Now in IEX</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="nc">Nock.Jets</span><span class="o">.</span><span class="n">calculate_mug_of_core</span><span class="p" data-group-id="7571029375-1">(</span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="7571029375-1">)</span><span class="w">
+</span><span class="mi">14801825384048474882</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="calculate_mug_of_layer/1">
+
+  <div class="detail-header">
+    <a href="#calculate_mug_of_layer/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">calculate_mug_of_layer(layer)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> calculate_mug_of_layer(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()</pre>
+
+      </div>
+
+<p>We calculate the mug of a given layer at any given gate.</p><h3 id="calculate_mug_of_layer/1-parameters" class="section-heading">
+  <a href="#calculate_mug_of_layer/1-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Parameters</span>
+</h3>
+<ul><li><code class="inline">parent_layer</code> - the layer of the standard library. This should be
+the same as the layer numbers found in <code class="inline">anoma.hoon</code></li></ul><h3 id="calculate_mug_of_layer/1-example" class="section-heading">
+  <a href="#calculate_mug_of_layer/1-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example</span>
+</h3>
+<p>In the Hoon repl one should write</p><pre><code class="makeup elixir" translate="no"><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="n">commit</span><span class="w"> </span><span class="p">%</span><span class="n">anoma</span><span class="w">
+</span><span class="o">&gt;=</span><span class="w">
+</span><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="n">anoma</span><span class="w"> </span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="o">=</span><span class="n">anoma</span><span class="o">=</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">anoma</span><span class="o">/</span><span class="n">hoon</span><span class="w">
+</span><span class="n">dojo</span><span class="o">&gt;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w">  </span><span class="n">anoma</span><span class="w">  </span><span class="o">!=</span><span class="p" data-group-id="4124585896-1">(</span><span class="n">sub</span><span class="p" data-group-id="4124585896-1">)</span><span class="w">
+</span><span class="p" data-group-id="4124585896-2">[</span><span class="mi">9</span><span class="w"> </span><span class="mi">47</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">31</span><span class="p" data-group-id="4124585896-2">]</span></code></pre><p>Now in IEX</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="nc">Nock.Jets</span><span class="o">.</span><span class="n">calculate_mug_of_layer</span><span class="p" data-group-id="4121772452-1">(</span><span class="mi">1</span><span class="p" data-group-id="4121772452-1">)</span><span class="w">
+</span><span class="mi">17654928022549292273</span></code></pre><p>This value should match Nock.@layer_1_contex_mug</p>
+  </section>
+</section>
+<section class="detail" id="calculate_mug_of_param_core/3">
+
+  <div class="detail-header">
+    <a href="#calculate_mug_of_param_core/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">calculate_mug_of_param_core(index_in_core, core_index, parent_layer)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> calculate_mug_of_param_core(
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()
+) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()</pre>
+
+      </div>
+
+<p>Like <a href="#calculate_mug_of_core/2"><code class="inline">calculate_mug_of_core/2</code></a> except we work over a parameterized core.</p><h3 id="calculate_mug_of_param_core/3-example" class="section-heading">
+  <a href="#calculate_mug_of_param_core/3-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example</span>
+</h3>
+<pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="nc">Nock.Jets</span><span class="o">.</span><span class="n">calculate_mug_of_param_core</span><span class="p" data-group-id="5012324562-1">(</span><span class="mi">767</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p" data-group-id="5012324562-1">)</span><span class="w">
+</span><span class="mi">12605872635346981159</span></code></pre><p>For our standard library, so far only layer 4 is parameterized</p>
+  </section>
+</section>
+<section class="detail" id="calculate_mug_of_param_layer/2">
+
+  <div class="detail-header">
+    <a href="#calculate_mug_of_param_layer/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">calculate_mug_of_param_layer(core_index, parent_layer)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> calculate_mug_of_param_layer(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()</pre>
+
+      </div>
+
+<p>Like <a href="#calculate_mug_of_layer/1"><code class="inline">calculate_mug_of_layer/1</code></a> except we work over a parameterized core.</p><h3 id="calculate_mug_of_param_layer/2-example" class="section-heading">
+  <a href="#calculate_mug_of_param_layer/2-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example</span>
+</h3>
+<pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="nc">Nock.Jets</span><span class="o">.</span><span class="n">calculate_mug_of_param_layer</span><span class="p" data-group-id="1055137174-1">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p" data-group-id="1055137174-1">)</span><span class="w">
+</span><span class="mi">11284470320276584209</span></code></pre><p>For our standard library, so far only layer 4 is parameterized</p>
+  </section>
+</section>
+<section class="detail" id="cmp/1">
+
+  <div class="detail-header">
+    <a href="#cmp/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">cmp(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> cmp(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="cue/1">
+
+  <div class="detail-header">
+    <a href="#cue/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">cue(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> cue(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="dec/1">
 
   <div class="detail-header">
-    <a href="#dec/1" class="detail-link" title="Link to this function">
+    <a href="#dec/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -279,13 +782,42 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> dec(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="dif/1">
+
+  <div class="detail-header">
+    <a href="#dif/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">dif(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> dif(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="div/1">
 
   <div class="detail-header">
-    <a href="#div/1" class="detail-link" title="Link to this function">
+    <a href="#div/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -296,13 +828,65 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> div(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="dul/1">
+
+  <div class="detail-header">
+    <a href="#dul/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">dul(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> dul(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="fra/1">
+
+  <div class="detail-header">
+    <a href="#fra/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">fra(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> fra(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="gte/1">
 
   <div class="detail-header">
-    <a href="#gte/1" class="detail-link" title="Link to this function">
+    <a href="#gte/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -313,13 +897,19 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> gte(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="gth/1">
 
   <div class="detail-header">
-    <a href="#gth/1" class="detail-link" title="Link to this function">
+    <a href="#gth/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -330,13 +920,65 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> gth(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="jam/1">
+
+  <div class="detail-header">
+    <a href="#jam/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">jam(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> jam(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="lsh/1">
+
+  <div class="detail-header">
+    <a href="#lsh/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">lsh(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> lsh(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="lte/1">
 
   <div class="detail-header">
-    <a href="#lte/1" class="detail-link" title="Link to this function">
+    <a href="#lte/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -347,13 +989,19 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> lte(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="lth/1">
 
   <div class="detail-header">
-    <a href="#lth/1" class="detail-link" title="Link to this function">
+    <a href="#lth/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -364,13 +1012,65 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> lth(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="met/1">
+
+  <div class="detail-header">
+    <a href="#met/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">met(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> met(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="mix/1">
+
+  <div class="detail-header">
+    <a href="#mix/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">mix(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> mix(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="mod/1">
 
   <div class="detail-header">
-    <a href="#mod/1" class="detail-link" title="Link to this function">
+    <a href="#mod/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -381,13 +1081,19 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> mod(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="mul/1">
 
   <div class="detail-header">
-    <a href="#mul/1" class="detail-link" title="Link to this function">
+    <a href="#mul/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -398,13 +1104,111 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> mul(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="nend/1">
+
+  <div class="detail-header">
+    <a href="#nend/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">nend(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> nend(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="pro/1">
+
+  <div class="detail-header">
+    <a href="#pro/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">pro(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> pro(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="rem/1">
+
+  <div class="detail-header">
+    <a href="#rem/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">rem(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> rem(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="rsh/1">
+
+  <div class="detail-header">
+    <a href="#rsh/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">rsh(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> rsh(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="sample/1">
 
   <div class="detail-header">
-    <a href="#sample/1" class="detail-link" title="Link to this function">
+    <a href="#sample/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -415,13 +1219,88 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sample(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="shax/1">
+
+  <div class="detail-header">
+    <a href="#shax/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">shax(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> shax(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="sign/1">
+
+  <div class="detail-header">
+    <a href="#sign/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sign(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sign(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="sign_detatched/1">
+
+  <div class="detail-header">
+    <a href="#sign_detatched/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sign_detatched(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sign_detatched(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
 
   </section>
 </section>
 <section class="detail" id="sub/1">
 
   <div class="detail-header">
-    <a href="#sub/1" class="detail-link" title="Link to this function">
+    <a href="#sub/1" class="detail-link" data-no-tooltip title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
@@ -432,6 +1311,127 @@ GUIDES
 
   <section class="docstring">
 
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sub(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="sum/1">
+
+  <div class="detail-header">
+    <a href="#sum/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sum(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sum(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="sun/1">
+
+  <div class="detail-header">
+    <a href="#sun/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sun(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> sun(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="syn/1">
+
+  <div class="detail-header">
+    <a href="#syn/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">syn(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> syn(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="Noun.html#t:t/0">Noun.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="verify/1">
+
+  <div class="detail-header">
+    <a href="#verify/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">verify(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> verify(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="verify_detatched/1">
+
+  <div class="detail-header">
+    <a href="#verify_detatched/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">verify_detatched(core)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> verify_detatched(<a href="Noun.html#t:t/0">Noun.t</a>()) :: :error | {:ok, 0 | 1}</pre>
+
+      </div>
+
 
   </section>
 </section>
@@ -439,34 +1439,40 @@ GUIDES
     </div>
   </section>
 
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
           <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+            <a href="https://hex.pm/packages/anoma/0.28.0" class="footer-hex-package">Hex Package</a>
 
-              <a href="Anoma.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="https://preview.hex.pm/preview/anoma/0.28.0">Hex Preview</a>
 
           </span>
-        </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+            <a href="Anoma.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        </p>
-      </footer>
-    </div>
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {

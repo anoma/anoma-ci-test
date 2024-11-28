@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Anoma v0.11.0">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="Anoma v0.28.0">
 
 
-    <title>Writing Documents — Anoma v0.11.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>Writing Documents — Anoma v0.28.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-4C960831.js"></script>
-
-      <script src="./.doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-E5C3E840.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-YIPIRHGU.js"></script>
 
   </head>
   <body data-type="extras" class="page-livemd">
@@ -37,9 +34,9 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -53,7 +50,7 @@
 Anoma
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.11.0
+          v0.28.0
         </div>
       </div>
     </div>
@@ -97,42 +94,43 @@ GUIDES
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Anoma</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Anoma</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <h1>
 
 
-  <span>Writing Documents</span>
-</h1>
+    <span>Writing Documents</span>
+  </h1>
 
-  <div class="livebook-badge-container">
-    <a href="#" class="livebook-badge">
-      <img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook" width="150" />
-    </a>
-  </div>
+    <div class="livebook-badge-container">
+      <a href="#" class="livebook-badge">
+        <img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook" width="150" />
+      </a>
+    </div>
 
 <h2 id="index" class="section-heading">
   <a href="#index" class="hover-link">
@@ -140,13 +138,13 @@ GUIDES
   </a>
   <span class="text">Index</span>
 </h2>
-<ol><li><a href="toc.html">Toc</a></li><li><a href="contributing.html">Contributing</a><ol><li><a href="understanding-any-module.html">Understanding Any Module</a></li><li><a href="writing-documents.html">Writing Documents</a></li><li><a href="git.html">Git</a></li><li><a href="hoon.html">Hoon</a></li><li><a href="iex.html">Iex</a></li><li><a href="observer.html">Observer</a></li><li><a href="testing.html">Testing</a><ol><li><a href="running-tests.html">Running Tests</a></li><li><a href="writing-tests.html">Writing Tests</a></li></ol></li></ol></li><li><a href="visualization.html">Visualization</a><ol><li><a href="actors.html">Actors</a></li></ol></li><li><a href="hoon.html">Hoon</a><ol><li><a href="calling.html">Calling</a></li><li><a href="dumping.html">Dumping</a></li><li><a href="setting-up.html">Setting Up</a></li></ol></li><li><a href="analysis.html">Analysis</a><ol><li><a href="fema-analysis-pinger.html">Fema Analysis Pinger</a></li></ol></li><li><a href="vm_interface.html">Vm_interface</a></li></ol><h2 id="the-writing-from-within-anoma" class="section-heading">
+<ol><li><a href="toc.html">Toc</a></li><li><a href="contributing.html">Contributing</a><ol><li><a href="understanding-any-module.html">Understanding Any Module</a></li><li><a href="style-guide.html">Style Guide</a></li><li><a href="writing-documents.html">Writing Documents</a></li><li><a href="examples-over-testing.html">Examples Over Testing</a></li><li><a href="git.html">Git</a></li><li><a href="iex.html">Iex</a></li><li><a href="mnesia-vs-actor-state.html">Mnesia Vs Actor State</a></li><li><a href="observer.html">Observer</a></li><li><a href="testing.html">Testing</a><ol><li><a href="running-tests.html">Running Tests</a></li><li><a href="writing-tests.html">Writing Tests</a></li></ol></li></ol></li><li><a href="visualization.html">Visualization</a><ol><li><a href="actors.html">Actors</a></li></ol></li><li><a href="hoon.html">Hoon</a><ol><li><a href="calling.html">Calling</a></li><li><a href="dumping.html">Dumping</a></li><li><a href="setting-up.html">Setting Up</a></li></ol></li><li><a href="analysis.html">Analysis</a></li></ol><h2 id="the-writing-from-within-anoma" class="section-heading">
   <a href="#the-writing-from-within-anoma" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">The writing from within Anoma</span>
 </h2>
-<p>One of the more important parts of the Anoma project is understanding how the codebase works, and how it evolves.</p><p>A good way to start on this process is by reading and writing documentation and making visual tools to better solidify knowledge for oneself and others.</p><p>To better do this, the codebase as a few levels of documentations:</p><ol><li>The specs (link TBA)</li><li>These livebook documents</li><li>Module level documentation</li></ol><p><code class="inline">1.</code> is what specifies what <a href="Anoma.html"><code class="inline">Anoma</code></a> is abstractly.</p><p><code class="inline">2.</code> serves the purpose of general knowledge transfer. Some documents serve to provide newcomers with information about various parts of Anoma's development process, others provide visual presentations to various parts of the codebase, while even others provide indepth analys of the codebase.</p><p><code class="inline">3.</code> is documents regarding module and function specifics. This is often augmented by <code class="inline">2.</code> for better context and examples.</p><h2 id="making-a-new-document" class="section-heading">
+<p>One of the more important parts of the Anoma project is understanding how the codebase works, and how it evolves.</p><p>A good way to start on this process is by reading and writing documentation and making visual tools to better solidify knowledge for oneself and others.</p><p>To better do this, the codebase as a few levels of documentations:</p><ol><li>The specs (link TBA)</li><li>These livebook documents</li><li>Module level documentation</li></ol><p><code class="inline">1.</code> is what specifies what <code class="inline">Anoma</code> is abstractly.</p><p><code class="inline">2.</code> serves the purpose of general knowledge transfer. Some documents serve to provide newcomers with information about various parts of Anoma's development process, others provide visual presentations to various parts of the codebase, while even others provide indepth analys of the codebase.</p><p><code class="inline">3.</code> is documents regarding module and function specifics. This is often augmented by <code class="inline">2.</code> for better context and examples.</p><h2 id="making-a-new-document" class="section-heading">
   <a href="#making-a-new-document" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -176,21 +174,22 @@ GUIDES
   </a>
   <span class="text">Controlling the index sections</span>
 </h2>
-<p>To control the order of the index, the project has a file that controls the ordering.</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;doc_order.exs&quot;</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">File</span><span class="o">.</span><span class="n">read!</span><span class="p" data-group-id="4482421859-1">(</span><span class="p" data-group-id="4482421859-1">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">IO</span><span class="o">.</span><span class="n">puts</span><span class="p" data-group-id="4482421859-2">(</span><span class="p" data-group-id="4482421859-2">)</span></code></pre><pre><code class="makeup output" translate="no"><span class="p" data-group-id="9601552943-1">[</span><span class="w">
-  </span><span class="p" data-group-id="9601552943-2">{</span><span class="s">&quot;documentation&quot;</span><span class="p">,</span><span class="w">
-   </span><span class="p" data-group-id="9601552943-3">[</span><span class="w">
-     </span><span class="p" data-group-id="9601552943-4">{</span><span class="s">&quot;toc&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9601552943-5">[</span><span class="p" data-group-id="9601552943-5">]</span><span class="p" data-group-id="9601552943-4">}</span><span class="p">,</span><span class="w">
-     </span><span class="p" data-group-id="9601552943-6">{</span><span class="s">&quot;contributing&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="p" data-group-id="9601552943-7">[</span><span class="w">
-        </span><span class="p" data-group-id="9601552943-8">{</span><span class="s">&quot;understanding-any-module&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9601552943-9">[</span><span class="p" data-group-id="9601552943-9">]</span><span class="p" data-group-id="9601552943-8">}</span><span class="p">,</span><span class="w">
-        </span><span class="p" data-group-id="9601552943-10">{</span><span class="s">&quot;writing-documents&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9601552943-11">[</span><span class="p" data-group-id="9601552943-11">]</span><span class="p" data-group-id="9601552943-10">}</span><span class="w">
-      </span><span class="p" data-group-id="9601552943-7">]</span><span class="p" data-group-id="9601552943-6">}</span><span class="p">,</span><span class="w">
-     </span><span class="p" data-group-id="9601552943-12">{</span><span class="s">&quot;visualization&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9601552943-13">[</span><span class="p" data-group-id="9601552943-13">]</span><span class="p" data-group-id="9601552943-12">}</span><span class="p">,</span><span class="w">
-     </span><span class="p" data-group-id="9601552943-14">{</span><span class="s">&quot;hoon&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9601552943-15">[</span><span class="p" data-group-id="9601552943-15">]</span><span class="p" data-group-id="9601552943-14">}</span><span class="w">
-   </span><span class="p" data-group-id="9601552943-3">]</span><span class="p" data-group-id="9601552943-2">}</span><span class="w">
-</span><span class="p" data-group-id="9601552943-1">]</span><span class="w">
-</span></code></pre><pre><code class="makeup output" translate="no"><span class="ss">:ok</span></code></pre><p>This is a priority list of documents, so the higher up a document is, the higher it will be presented in the <code class="inline">index</code>.</p><p>Running <a href="Mix.Tasks.Toc.html"><code class="inline">mix toc</code></a> takes this into account. Note that to make sure your changes are reflected, run <strong>mix clean</strong> to make sure the wanted order is generated.</p>
-<div class="bottom-actions">
+<p>To control the order of the index, the project has a file that controls the ordering.</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;doc_order.exs&quot;</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">File</span><span class="o">.</span><span class="n">read!</span><span class="p" data-group-id="9980784025-1">(</span><span class="p" data-group-id="9980784025-1">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">IO</span><span class="o">.</span><span class="n">puts</span><span class="p" data-group-id="9980784025-2">(</span><span class="p" data-group-id="9980784025-2">)</span></code></pre><pre><code class="makeup output" translate="no"><span class="p" data-group-id="5493970068-1">[</span><span class="w">
+  </span><span class="p" data-group-id="5493970068-2">{</span><span class="s">&quot;documentation&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="p" data-group-id="5493970068-3">[</span><span class="w">
+     </span><span class="p" data-group-id="5493970068-4">{</span><span class="s">&quot;toc&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5493970068-5">[</span><span class="p" data-group-id="5493970068-5">]</span><span class="p" data-group-id="5493970068-4">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5493970068-6">{</span><span class="s">&quot;contributing&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="p" data-group-id="5493970068-7">[</span><span class="w">
+        </span><span class="p" data-group-id="5493970068-8">{</span><span class="s">&quot;understanding-any-module&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5493970068-9">[</span><span class="p" data-group-id="5493970068-9">]</span><span class="p" data-group-id="5493970068-8">}</span><span class="p">,</span><span class="w">
+        </span><span class="p" data-group-id="5493970068-10">{</span><span class="s">&quot;writing-documents&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5493970068-11">[</span><span class="p" data-group-id="5493970068-11">]</span><span class="p" data-group-id="5493970068-10">}</span><span class="w">
+      </span><span class="p" data-group-id="5493970068-7">]</span><span class="p" data-group-id="5493970068-6">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5493970068-12">{</span><span class="s">&quot;visualization&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5493970068-13">[</span><span class="p" data-group-id="5493970068-13">]</span><span class="p" data-group-id="5493970068-12">}</span><span class="p">,</span><span class="w">
+     </span><span class="p" data-group-id="5493970068-14">{</span><span class="s">&quot;hoon&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5493970068-15">[</span><span class="p" data-group-id="5493970068-15">]</span><span class="p" data-group-id="5493970068-14">}</span><span class="w">
+   </span><span class="p" data-group-id="5493970068-3">]</span><span class="p" data-group-id="5493970068-2">}</span><span class="w">
+</span><span class="p" data-group-id="5493970068-1">]</span></code></pre><pre><code class="makeup output" translate="no"><span class="ss">:ok</span></code></pre><p>This is a priority list of documents, so the higher up a document is, the higher it will be presented in the <code class="inline">index</code>.</p><p>Running <a href="Mix.Tasks.Toc.html"><code class="inline">mix toc</code></a> takes this into account. Note that to make sure your changes are reflected, run <strong>mix clean</strong> to make sure the wanted order is generated.</p>
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
       <a href="understanding-any-module.html" class="bottom-actions-button" rel="prev">
@@ -216,34 +215,42 @@ Visualizing Anoma
 
   </div>
 </div>
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
           <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+            <a href="https://hex.pm/packages/anoma/0.28.0" class="footer-hex-package">Hex Package</a>
 
-              <a href="Anoma.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="https://preview.hex.pm/preview/anoma/0.28.0">Hex Preview</a>
+
+              (<a href="https://preview.hex.pm/preview/anoma/0.28.0/show/documentation/contributing/writing-documents.livemd">current file</a>)
 
           </span>
-        </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+            <a href="Anoma.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        </p>
-      </footer>
-    </div>
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
