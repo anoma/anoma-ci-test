@@ -35,29 +35,20 @@ jobs:
       #---------------------------------------------------------------------------
       # Add the client binary to the release
 
-      - name: Download a single artifact
+      - name: Download all artifacts
         uses: actions/download-artifact@v4
+
       - name: Display structure of downloaded files
-        run: ls -la
-      # #---------------------------------------------------------------------------
-      # # Push artifacts for this release
+        run: ls -la apps/anoma_client
 
-      # - name: publish client release
-      #   shell: bash
-      #   env:
-      #     GH_TOKEN: ${{ secrets.github_token }}
-      #   run: |
-      #     gh release upload ${{ inputs.release_name }} \
-      #       --clobber                                  \
-      #       apps/anoma_client/anoma_client
+      #---------------------------------------------------------------------------
+      # Push artifacts for this release
 
-      # Example
-      #
-      # - name: publish node release
-      #   shell: bash
-      #   env:
-      #     GH_TOKEN: ${{ secrets.github_token }}
-      #   run: |
-      #     gh release upload ${{ inputs.release_name }} \
-      #     --clobber                                    \
-      #     apps/anoma_node/anoma_node
+      - name: publish all release binaries
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+        run: |
+          for f in releases/*; do
+              gh release upload "$(basename "$f")" --clobber $f
+          done
