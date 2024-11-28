@@ -63,4 +63,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}
-          path: output/binaries/anoma_client-elixir-${{ inputs.elixir-version }}-otp-${{ inputs.otp-version }}
+          path: apps/anoma_client/anoma_client
