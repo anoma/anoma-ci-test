@@ -15,10 +15,15 @@
 name: Release
 run-name: Release `${{ github.ref_name }}`
 
+# on:
+#   push:
+#     tags:
+#       - v*
 on:
   push:
-    tags:
-      - v*
+    branches-ignore:
+      - 'main'
+      - 'next'
 
 jobs:
   # try_merge:
