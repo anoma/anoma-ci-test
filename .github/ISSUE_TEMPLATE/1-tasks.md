@@ -1,22 +1,21 @@
 ---
-name: Task
-about: Template for Promise Graph tasks
+name: Tasks
+about: Template for bug reports, tasks etc. Works well with the promise graph
 title:
 labels:
 assignees:
 ---
 customer:
 performer:
-deadline:
-estimated:
-started:
-actual:
-completed:
-confirmed:
+deadline: null
+estimated: null
+started: null
+actual: null
+completed: null
+confirmed: null
 dependencies:
 - [ ]
-supersedes:
--
+
 ---
 
-<definition of done>
+<put issue details here>
