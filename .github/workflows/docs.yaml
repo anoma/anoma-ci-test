@@ -51,6 +51,8 @@ jobs:
         run: MIX_ENV=${{ inputs.mix-env }} mix docs
 
   publish-docs:
+    environment:
+      name: github-pages
     needs: compile-docs
     runs-on: ubuntu-latest
     steps:
