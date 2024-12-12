@@ -49,6 +49,7 @@ jobs:
       #   run: make docs-release
       - name: generate docs
         run: MIX_ENV=${{ inputs.mix-env }} mix docs
+        
   publish-docs:
     needs: compile-docs
     runs-on: ubuntu-latest
